@@ -5,7 +5,6 @@ $(function() {
   tracks.each(function(index, track) {
     $(track).click(function(event) {
       trackObj = objTimes[$(track).attr('id')]
-      console.log(trackObj)
       setVideo(trackObj.video)
       stopVideo()
       setVolume(10)
