@@ -2,8 +2,8 @@ $(function() {
   let tracks = $('.track')
   let modal = $('#track-info-modal')
 
-  tracks.each(function(index, track) {
-    $(track).click(function(event) {
+  tracks.each((index, track) => {
+    $(track).click(() => {
       trackObj = objTimes[$(track).attr('id')]
       setVideo(trackObj.video)
       stopVideo()
