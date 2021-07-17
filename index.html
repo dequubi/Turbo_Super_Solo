@@ -1,330 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css" class="stylesheet">
-  <link rel="icon" href="assets/logo.jpg">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Trackmania Turbo Records</title>
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-  <script src="js/times.js"></script>
-  <script src="js/track.js"></script>
-  <script src="js/youtube.js"></script>
-</head>
-<body>
-  <header class="header">
-
-  </header>
-  <main class="main">
-    <div class="modal" id="track-info-modal">
-      <div class="modal-content">
-        <h3 class="stm-info">Track #132</h3>
-        <div class="stm-video" id="stm-video"></div>
-        <div class="times">
-          <p class="stm">Super Trackmaster: <span class="time">53'963</span></p>
-          <p class="sg">Super Gold: <span class="time">54'338</span></p>
-          <p class="ss">Super Silver: <span class="time">54'717</span></p>
-          <p class="sb">Super Bronze: <span class="time">55'474</span></p>
-          <p class="rtm">Regular Trackmaster: <span class="time">56'988</span></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" class="stylesheet" />
+    <link rel="stylesheet" href="css/modal.css" class="stylesheet" />
+    <link rel="icon" href="assets/logo.jpg" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teko&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap"
+      rel="stylesheet">
+    <title>Trackmania Turbo Medals</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/times.js"></script>
+    <script src="js/youtube.js"></script>
+    <script src="js/initialCreation.js"></script>
+  </head>
+  <body>
+    <header class="header"></header>
+    <main class="main">
+      <!-- Modal window START -->
+      <div class="modal" id="track-info-modal">
+        <div class="modal-content">
+          <h3 class="stm-info">Track #132</h3>
+          <div class="stm-video" id="stm-video"></div>
+          <div class="times">
+            <div class="flex-sb solo">
+              <p>Regular Solo Medals</p>
+              <p>Super Solo Medals</p>
+            </div>
+            <div class="flex-sb line-tm">
+              <div class="regular">
+                <div class="medal tm"></div>
+                <span class="time" id="rtm">33'068</span>
+              </div>
+              <div class="super">
+                <span class="time" id="stm">32'256</span>
+                <div class="medal tm"></div>
+              </div>
+            </div>
+            <div class="flex-sb line">
+              <div class="regular">
+                <div class="medal g"></div>
+                <span class="time" id="rg">35'12</span>
+              </div>
+              <div class="super">
+                <span class="time" id="sg">32'357</span>
+                <div class="medal g"></div>
+              </div>
+            </div>
+            <div class="flex-sb line">
+              <div class="regular">
+                <div class="medal s"></div>
+                <span class="time" id="rs">40'22</span>
+              </div>
+              <div class="super">
+                <span class="time" id="ss">32'459</span>
+                <div class="medal s"></div>
+              </div>
+            </div>
+            <div class="flex-sb line">
+              <div class="regular">
+                <div class="medal b"></div>
+                <span class="time" id="rb">51'44</span>
+              </div>
+              <div class="super">
+                <span class="time" id="sb">32'662</span>
+                <div class="medal b"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="wrapper">
-      <div class="environments">
-        <img src="assets/top-left.jpg" alt="Title" class="hd-env hd-env-none">
-        <img src="assets/env-canyon.jpg" alt="Env: Canyon" class="hd-env hd-env-canyon">
-        <img src="assets/env-valley.jpg" alt="Env: Valley" class="hd-env hd-env-valley">
-        <img src="assets/env-lagoon.jpg" alt="Env: Lagoon" class="hd-env hd-env-lagoon">
-        <img src="assets/env-stadium.jpg" alt="Env: Stadium" class="hd-env hd-env-stadium">
+      <!-- Modal window END -->
+      <div class="grid-container">
+        <!-- Строка 1 -->
+        <div class="gem im">
+          <img src="assets/2x1/solo.jpg" alt="" srcset="" />
+        </div>
+        <div class="gem im">
+          <img src="assets/2x1/canyon.jpg" alt="" srcset="" />
+        </div>
+        <div class="gem im">
+          <img src="assets/2x1/valley.jpg" alt="" srcset="" />
+        </div>
+        <div class="gem im">
+          <img src="assets/2x1/lagoon.jpg" alt="" srcset="" />
+        </div>
+        <div class="gem im">
+          <img src="assets/2x1/stadium.jpg" alt="" srcset="" />
+        </div>
+        <!-- Строка 2 -->
+        <div class="gem im">
+          <img src="assets/2x1/series-white.jpg" alt="" srcset="" />
+        </div>
+        <ul class="gem canyon white track-list"></ul>
+        <ul class="gem valley white track-list"></ul>
+        <ul class="gem lagoon white track-list"></ul>
+        <ul class="gem stadium white track-list"></ul>
+        <!-- Строка 3 -->
+        <div class="gem im">
+          <img src="assets/2x1/series-green.jpg" alt="" srcset="" />
+        </div>
+        <ul class="gem canyon green track-list"></ul>
+        <ul class="gem valley green track-list"></ul>
+        <ul class="gem lagoon green track-list"></ul>
+        <ul class="gem stadium green track-list"></ul>
+        <!-- Строка 4 -->
+        <div class="gem im">
+          <img src="assets/2x1/series-blue.jpg" alt="" srcset="" />
+        </div>
+        <ul class="gem canyon blue track-list"></ul>
+        <ul class="gem valley blue track-list"></ul>
+        <ul class="gem lagoon blue track-list"></ul>
+        <ul class="gem stadium blue track-list"></ul>
+        <!-- Строка 5 -->
+        <div class="gem im">
+          <img src="assets/2x1/series-red.jpg" alt="" srcset="" />
+        </div>
+        <ul class="gem canyon red track-list"></ul>
+        <ul class="gem valley red track-list"></ul>
+        <ul class="gem lagoon red track-list"></ul>
+        <ul class="gem stadium red track-list"></ul>
+        <!-- Строка 6 -->
+        <div class="gem im">
+          <img src="assets/2x1/series-black.jpg" alt="" srcset="" />
+        </div>
+        <ul class="gem canyon black track-list"></ul>
+        <ul class="gem valley black track-list"></ul>
+        <ul class="gem lagoon black track-list"></ul>
+        <ul class="gem stadium black track-list"></ul>
       </div>
-      <!-- ========== WHITE ========== -->
-      <div class="series series-white">
-        <img src="assets/white-series-pic.jpg" alt="White Series Picture" class="series-img">
-        <ul class="track-list canyon">
-          <li class="track" id="001">01</li>
-          <li class="track" id="002">02</li>
-          <li class="track" id="003">03</li>
-          <li class="track" id="004">04</li>
-          <li class="track" id="005">05</li>
-          <li class="track" id="006">06</li>
-          <li class="track" id="007">07</li>
-          <li class="track" id="008">08</li>
-          <li class="track" id="009">09</li>
-          <li class="track" id="010">10</li>
-        </ul>
-        <ul class="track-list valley">
-          <li class="track" id="011">11</li>
-          <li class="track" id="012">12</li>
-          <li class="track" id="013">13</li>
-          <li class="track" id="014">14</li>
-          <li class="track" id="015">15</li>
-          <li class="track" id="016">16</li>
-          <li class="track" id="017">17</li>
-          <li class="track" id="018">18</li>
-          <li class="track" id="019">19</li>
-          <li class="track" id="020">20</li>
-        </ul>
-        <ul class="track-list lagoon">
-          <li class="track" id="021">21</li>
-          <li class="track" id="022">22</li>
-          <li class="track" id="023">23</li>
-          <li class="track" id="024">24</li>
-          <li class="track" id="025">25</li>
-          <li class="track" id="026">26</li>
-          <li class="track" id="027">27</li>
-          <li class="track" id="028">28</li>
-          <li class="track" id="029">29</li>
-          <li class="track" id="030">30</li>
-        </ul>
-        <ul class="track-list stadium">
-          <li class="track" id="031">31</li>
-          <li class="track" id="032">32</li>
-          <li class="track" id="033">33</li>
-          <li class="track" id="034">34</li>
-          <li class="track" id="035">35</li>
-          <li class="track" id="036">36</li>
-          <li class="track" id="037">37</li>
-          <li class="track" id="038">38</li>
-          <li class="track" id="039">39</li>
-          <li class="track" id="040">40</li>
-        </ul>
+      <div class="tiers">
+        <div class="tier-button">Toggle STM tiers</div>
+        <div class="tier-filter">
+          <span class="filter-title">Tier filter</span>
+          <div class="tier" id="t1">1</div>
+          <div class="tier" id="t2">2</div>
+          <div class="tier" id="t3">3</div>
+          <div class="tier" id="t4">4</div>
+          <div class="tier" id="t5">5</div>
+          <div class="tier" id="t6">6</div>
+          <div class="tier" id="t7">7</div>
+          <div class="tier" id="t8">8</div>
+        </div>
       </div>
-      <!-- ========== GREEN ========== -->
-      <div class="series series-green">
-        <img src="assets/green-series-pic.jpg" alt="Green Series Picture" class="series-img">
-        <ul class="track-list canyon">
-          <li class="track" id="041">41</li>
-          <li class="track" id="042">42</li>
-          <li class="track" id="043">43</li>
-          <li class="track" id="044">44</li>
-          <li class="track" id="045">45</li>
-          <li class="track" id="046">46</li>
-          <li class="track" id="047">47</li>
-          <li class="track" id="048">48</li>
-          <li class="track" id="049">49</li>
-          <li class="track" id="050">50</li>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <ul class="footer-info">
+          <li>
+            <p>Trackmania Turbo Medal Centre</p>
+          </li>
+          <li>
+            <p>Shaiden, 2021</p>
+          </li>
+          <li>
+            <p>
+              All information was taken form the
+              <a
+                href="https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318"
+                class="link"
+                >Trackmania Turbo Center Spreadsheet</a
+              >
+            </p>
+          </li>
         </ul>
-        <ul class="track-list valley">
-          <li class="track" id="051">51</li>
-          <li class="track" id="052">52</li>
-          <li class="track" id="053">53</li>
-          <li class="track" id="054">54</li>
-          <li class="track" id="055">55</li>
-          <li class="track" id="056">56</li>
-          <li class="track" id="057">57</li>
-          <li class="track" id="058">58</li>
-          <li class="track" id="059">59</li>
-          <li class="track" id="060">60</li>
-        </ul>
-        <ul class="track-list lagoon">
-          <li class="track" id="061">61</li>
-          <li class="track" id="062">62</li>
-          <li class="track" id="063">63</li>
-          <li class="track" id="064">64</li>
-          <li class="track" id="065">65</li>
-          <li class="track" id="066">66</li>
-          <li class="track" id="067">67</li>
-          <li class="track" id="068">68</li>
-          <li class="track" id="069">69</li>
-          <li class="track" id="070">70</li>
-        </ul>
-        <ul class="track-list stadium">
-          <li class="track" id="071">71</li>
-          <li class="track" id="072">72</li>
-          <li class="track" id="073">73</li>
-          <li class="track" id="074">74</li>
-          <li class="track" id="075">75</li>
-          <li class="track" id="076">76</li>
-          <li class="track" id="077">77</li>
-          <li class="track" id="078">78</li>
-          <li class="track" id="079">79</li>
-          <li class="track" id="080">80</li>
-        </ul>
+        <p class="source-code">
+          Source code available at
+          <a href="https://github.com/ShaidenUNI/Turbo_Super_Solo" class="link"
+            >GitHub</a
+          >
+          <img
+            src="assets/GitHub-Mark-32px.png"
+            alt="GitHub logo"
+            class="github-logo"
+          />
+        </p>
       </div>
-      <!-- ========== BLUE ========== -->
-      <div class="series series-blue">
-        <img src="assets/blue-series-pic.jpg" alt="Blue Series Picture" class="series-img">
-        <ul class="track-list canyon">
-          <li class="track" id="081">81</li>
-          <li class="track" id="082">82</li>
-          <li class="track" id="083">83</li>
-          <li class="track" id="084">84</li>
-          <li class="track" id="085">85</li>
-          <li class="track" id="086">86</li>
-          <li class="track" id="087">87</li>
-          <li class="track" id="088">88</li>
-          <li class="track" id="089">89</li>
-          <li class="track" id="090">90</li>
-        </ul>
-        <ul class="track-list valley">
-          <li class="track" id="091">91</li>
-          <li class="track" id="092">92</li>
-          <li class="track" id="093">93</li>
-          <li class="track" id="094">94</li>
-          <li class="track" id="095">95</li>
-          <li class="track" id="096">96</li>
-          <li class="track" id="097">97</li>
-          <li class="track" id="098">98</li>
-          <li class="track" id="099">99</li>
-          <li class="track" id="100">100</li>
-        </ul>
-        <ul class="track-list lagoon">
-          <li class="track" id="101">101</li>
-          <li class="track" id="102">102</li>
-          <li class="track" id="103">103</li>
-          <li class="track" id="104">104</li>
-          <li class="track" id="105">105</li>
-          <li class="track" id="106">106</li>
-          <li class="track" id="107">107</li>
-          <li class="track" id="108">108</li>
-          <li class="track" id="109">109</li>
-          <li class="track" id="110">110</li>
-        </ul>
-        <ul class="track-list stadium">
-          <li class="track" id="111">111</li>
-          <li class="track" id="112">112</li>
-          <li class="track" id="113">113</li>
-          <li class="track" id="114">114</li>
-          <li class="track" id="115">115</li>
-          <li class="track" id="116">116</li>
-          <li class="track" id="117">117</li>
-          <li class="track" id="118">118</li>
-          <li class="track" id="119">119</li>
-          <li class="track" id="120">120</li>
-        </ul>
-      </div>
-      <!-- ========== RED ========== -->
-      <div class="series series-red">
-        <img src="assets/red-series-pic.jpg" alt="White Series Picture" class="series-img">
-        <ul class="track-list canyon">
-          <li class="track" id="121">121</li>
-          <li class="track" id="122">122</li>
-          <li class="track" id="123">123</li>
-          <li class="track" id="124">124</li>
-          <li class="track" id="125">125</li>
-          <li class="track" id="126">126</li>
-          <li class="track" id="127">127</li>
-          <li class="track" id="128">128</li>
-          <li class="track" id="129">129</li>
-          <li class="track" id="130">130</li>
-        </ul>
-        <ul class="track-list valley">
-          <li class="track" id="131">131</li>
-          <li class="track" id="132">132</li>
-          <li class="track" id="133">133</li>
-          <li class="track" id="134">134</li>
-          <li class="track" id="135">135</li>
-          <li class="track" id="136">136</li>
-          <li class="track" id="137">137</li>
-          <li class="track" id="138">138</li>
-          <li class="track" id="139">139</li>
-          <li class="track" id="140">140</li>
-        </ul>
-        <ul class="track-list lagoon">
-          <li class="track" id="141">141</li>
-          <li class="track" id="142">142</li>
-          <li class="track" id="143">143</li>
-          <li class="track" id="144">144</li>
-          <li class="track" id="145">145</li>
-          <li class="track" id="146">146</li>
-          <li class="track" id="147">147</li>
-          <li class="track" id="148">148</li>
-          <li class="track" id="149">149</li>
-          <li class="track" id="150">150</li>
-        </ul>
-        <ul class="track-list stadium">
-          <li class="track" id="151">151</li>
-          <li class="track" id="152">152</li>
-          <li class="track" id="153">153</li>
-          <li class="track" id="154">154</li>
-          <li class="track" id="155">155</li>
-          <li class="track" id="156">156</li>
-          <li class="track" id="157">157</li>
-          <li class="track" id="158">158</li>
-          <li class="track" id="159">159</li>
-          <li class="track" id="160">160</li>
-        </ul>
-      </div>
-      <!-- ========== BLACK ========== -->
-      <div class="series series-black">
-        <img src="assets/black-series-pic.jpg" alt="White Series Picture" class="series-img">
-        <ul class="track-list canyon">
-          <li class="track" id="161">161</li>
-          <li class="track" id="162">162</li>
-          <li class="track" id="163">163</li>
-          <li class="track" id="164">164</li>
-          <li class="track" id="165">165</li>
-          <li class="track" id="166">166</li>
-          <li class="track" id="167">167</li>
-          <li class="track" id="168">168</li>
-          <li class="track" id="169">169</li>
-          <li class="track" id="170">170</li>
-        </ul>
-        <ul class="track-list valley">
-          <li class="track" id="171">171</li>
-          <li class="track" id="172">172</li>
-          <li class="track" id="173">173</li>
-          <li class="track" id="174">174</li>
-          <li class="track" id="175">175</li>
-          <li class="track" id="176">176</li>
-          <li class="track" id="177">177</li>
-          <li class="track" id="178">178</li>
-          <li class="track" id="179">179</li>
-          <li class="track" id="180">180</li>
-        </ul>
-        <ul class="track-list lagoon">
-          <li class="track" id="181">181</li>
-          <li class="track" id="182">182</li>
-          <li class="track" id="183">183</li>
-          <li class="track" id="184">184</li>
-          <li class="track" id="185">185</li>
-          <li class="track" id="186">186</li>
-          <li class="track" id="187">187</li>
-          <li class="track" id="188">188</li>
-          <li class="track" id="189">189</li>
-          <li class="track" id="190">190</li>
-        </ul>
-        <ul class="track-list stadium">
-          <li class="track" id="191">191</li>
-          <li class="track" id="192">192</li>
-          <li class="track" id="193">193</li>
-          <li class="track" id="194">194</li>
-          <li class="track" id="195">195</li>
-          <li class="track" id="196">196</li>
-          <li class="track" id="197">197</li>
-          <li class="track" id="198">198</li>
-          <li class="track" id="199">199</li>
-          <li class="track" id="200">200</li>
-        </ul>
-      </div>
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="footer-container">
-      <ul class="footer-info">
-        <li>
-          <p>Trackmania Turbo Super Solo Medals</p>
-        </li>
-        <li>
-          <p>Shaiden, 2021</p>
-        </li>
-        <li>
-          <p>All information was taken form the <a href="https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318" class="link">Trackmania Turbo Center Spreadsheet</a></p>
-        </li>
-      </ul>
-      <p class="source-code">
-        Source code available at
-        <a href="https://github.com/ShaidenUNI/Turbo_Super_Solo" class="link">GitHub</a>
-        <img src="assets/GitHub-Mark-32px.png" alt="GitHub logo" class="github-logo">
-      </p>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
