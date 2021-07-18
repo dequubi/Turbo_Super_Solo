@@ -48,7 +48,6 @@ li {
 .track > .difficulty {
   width: 50%;
   height: 7px;
-  background-color: green;
   margin-top: 1px;
 }
 .white.track-list > .track > .button {
@@ -151,60 +150,39 @@ li {
   width: 30px;
   height: 30px;
 }
-#t1 {
+.t1 {
   background-color: #00FF28;
   color: #00FF28;
 }
-#t1:hover {
-  color: #000;
-}
-#t2 {
+.t2 {
   background-color: #7BE900;
   color: #7BE900;
 }
-#t2:hover {
-  color: #000;
-}
-#t3 {
+.t3 {
   background-color: #A8D000;
   color: #A8D000;
 }
-#t3:hover {
-  color: #000;
-}
-#t4 {
+.t4 {
   background-color: #C8B600;
   color: #C8B600;
 }
-#t4:hover {
-  color: #000;
-}
-#t5 {
+.t5 {
   background-color: #E09800;
   color: #E09800;
 }
-#t5:hover {
-  color: #000;
-}
-#t6 {
+.t6 {
   background-color: #F17700;
   color: #F17700;
 }
-#t6:hover {
-  color: #000;
-}
-#t7 {
+.t7 {
   background-color: #FB5000;
   color: #FB5000;
 }
-#t7:hover {
-  color: #000;
-}
-#t8 {
+.t8 {
   background-color: #FF0000;
   color: #FF0000;
 }
-#t8:hover {
+.tier:hover {
   color: #000;
 }
 .inactive {

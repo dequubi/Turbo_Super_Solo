@@ -1,5 +1,15 @@
 $(function () {
   let modal = $('#track-info-modal')
+  let tierColors = {
+    t1: '#00FF28',
+    t2: '#7BE900',
+    t3: '#A8D000',
+    t4: '#C8B600',
+    t5: '#E09800',
+    t6: '#F17700',
+    t7: '#FB5000',
+    t8: '#FF0000',
+  }
 
   function createTracksAndBehaviour() {
     for (i = 1; i <= 200; i++) {
@@ -32,12 +42,15 @@ $(function () {
       $('.track').toggleClass('short')
     })
 
+    let bodyStyles = window.getComputedStyle(document.body)
+    document.body.style.setProperty('--rr-color', '0 -10px 0 0 #ff0000')
+
     let tracks = $('.track')
     tracks.each((index, track) => {
       let trackObj = objTimes[$(track).attr('id')]
       $(track)
         .find('.difficulty')
-        .attr('id', `t${9 - trackObj.tier}`)
+        .addClass(`t${9 - trackObj.tier}`)
         .css('width', `${((9 - trackObj.tier) / 8) * 100}%`)
 
       $(track).click(() => {
@@ -55,6 +68,17 @@ $(function () {
         $('#rs').html(trackObj.rs)
         $('#rb').html(trackObj.rb)
 
+        // setting color for css variable since I made
+        // the inverse borders via ::before and ::after
+        // and you can't access them directly :\
+        document.body.style.setProperty(
+          '--rr-color',
+          '0 -10px 0 0 ' + tierColors[`t${9 - trackObj.tier}`]
+        )
+        $('.modal-tier-text').html(`Tier ${9 - trackObj.tier}`)
+        $('.modal-tier-text').css('background-color', tierColors[`t${9 - trackObj.tier}`])
+        $('.modal-tier-line').css('background-color', tierColors[`t${9 - trackObj.tier}`])
+
         $(modal).show()
       })
     })
@@ -63,9 +87,8 @@ $(function () {
     filters.each((index, tier) => {
       $(tier).click(() => {
         $(tier).toggleClass('inactive')
-        console.log($(tier).attr('id'))
         $(tracks)
-          .find(`#${$(tier).attr('id')}`)
+          .find(`.${$(tier).attr('id')}`)
           .parent()
           .toggleClass('inactive')
       })

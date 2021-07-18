@@ -61,7 +61,6 @@ li {
 .track > .difficulty {
   width: 50%;
   height: 7px;
-  background-color: green;
   margin-top: 1px;
 }
 
@@ -142,35 +141,35 @@ li {
 .mixin-tier(@color) {
   background-color: @color;
   color: @color;
-
-  &:hover {
-    color: #000;
-  }
 }
 
-#t1 {
+.t1 {
   .mixin-tier(#00FF28);
 }
-#t2 {
+.t2 {
   .mixin-tier(#7BE900);
 }
-#t3 {
+.t3 {
   .mixin-tier(#A8D000);
 }
-#t4 {
+.t4 {
   .mixin-tier(#C8B600);
 }
-#t5 {
+.t5 {
   .mixin-tier(#E09800);
 }
-#t6 {
+.t6 {
   .mixin-tier(#F17700);
 }
-#t7 {
+.t7 {
   .mixin-tier(#FB5000);
 }
-#t8 {
+.t8 {
   .mixin-tier(#FF0000);
+}
+
+.tier:hover {
+  color: #000;
 }
 
 .inactive {

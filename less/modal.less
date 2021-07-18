@@ -19,7 +19,7 @@
     padding: 0 20px;
     width: 640px;
     border: 2px solid #343434;
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: #000;
     border-radius: 28px;
 
     display: flex;
@@ -31,26 +31,73 @@
       border-bottom: 1px solid #fff;
     }
 
+    .modal-tier {
+      width: 100%;
+    }
+
+    .modal-tier-line {
+      height: 3px;
+      width: 100%;
+    }
+
+    .modal-tier-text {
+      position: relative;
+      padding: 0 15px;
+      height: 20px;
+      margin: 0 auto;
+      width: 50px;
+      display: grid;
+      place-content: center;
+      color: #000;
+      border-radius: 0 0 10px 10px;
+      font-size: 18px;
+    }
+
+    .modal-tier-text::before {
+      content: "";
+      position: absolute;
+      background-color: #000;
+      right: -10px;
+      bottom: 0px;
+      height: 20px;
+      width: 10px;
+      border-top-left-radius: 10px;
+      box-shadow: var(--rr-color);
+    }
+
+    .modal-tier-text::after {
+      content: "";
+      position: absolute;
+      background-color: #000;
+      bottom: 0px;
+      left: -10px;
+      height: 20px;
+      width: 10px;
+      border-top-right-radius: 10px;
+      box-shadow: var(--rr-color);
+    }
+
     .stm-video {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #fff;
+      z-index: 10001;
     }
 
     .times {
+      margin-top: -14px;
       width: 640px;
       margin-bottom: 15px;
       font-size: 18px;
+
+      .flex-sb {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
       .solo {
         font-size: 20px;
         font-weight: 400;
       }
 
-      .flex-sb {
-        display: flex;
-        justify-content: space-between;
-      }
 
       .line-tm {
         font-size: 24px;
