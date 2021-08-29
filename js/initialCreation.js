@@ -1,5 +1,6 @@
 $(function () {
   let modal = $('#track-info-modal')
+  let currentTrack = -1
   let tierColors = {
     t1: '#00FF28',
     t2: '#7BE900',
@@ -9,6 +10,47 @@ $(function () {
     t6: '#F17700',
     t7: '#FB5000',
     t8: '#FF0000',
+  }
+
+  function setModalInfo(trackObject) {
+
+    setVideo(trackObject.video)
+    stopVideo()
+    setVolume(10)
+
+    $('.stm-info').html('Track #' + trackObject.id)
+    $('#stm').html(trackObject.stm)
+    $('#sg').html(trackObject.sg)
+    $('#ss').html(trackObject.ss)
+    $('#sb').html(trackObject.sb)
+    $('#rtm').html(trackObject.rtm)
+    $('#rg').html(trackObject.rg)
+    $('#rs').html(trackObject.rs)
+    $('#rb').html(trackObject.rb)
+
+    // setting color for css variable since I made
+    // the inverse borders via ::before and ::after
+    // and you can't access them directly :\
+    document.body.style.setProperty(
+      '--rr-color',
+      '0 -10px 0 0 ' + tierColors[`t${9 - trackObject.tier}`]
+    )
+    $('.modal-tier-text').html(`Tier ${9 - trackObject.tier}`)
+    $('.modal-tier-text').css('background-color', tierColors[`t${9 - trackObject.tier}`])
+    $('.modal-tier-line').css('background-color', tierColors[`t${9 - trackObject.tier}`])
+
+    if (trackObject.id === '001') {
+      $('.previous').addClass('inactive')
+    } else {
+      $('.previous').removeClass('inactive')
+    }
+
+    if (trackObject.id === '200') {
+      $('.next').addClass('inactive')
+    } else {
+      $('.next').removeClass('inactive')
+    }
+
   }
 
   function createTracksAndBehaviour() {
@@ -49,38 +91,32 @@ $(function () {
     tracks.each((index, track) => {
       let trackObj = objTimes[$(track).attr('id')]
       $(track)
-        .find('.difficulty')
-        .addClass(`t${9 - trackObj.tier}`)
-        .css('width', `${((9 - trackObj.tier) / 8) * 100}%`)
+      .find('.difficulty')
+      .addClass(`t${9 - trackObj.tier}`)
+      .css('width', `${((9 - trackObj.tier) / 8) * 100}%`)
 
       $(track).click(() => {
-        setVideo(trackObj.video)
-        stopVideo()
-        setVolume(10)
-
-        $('.stm-info').html('Track #' + trackObj.id)
-        $('#stm').html(trackObj.stm)
-        $('#sg').html(trackObj.sg)
-        $('#ss').html(trackObj.ss)
-        $('#sb').html(trackObj.sb)
-        $('#rtm').html(trackObj.rtm)
-        $('#rg').html(trackObj.rg)
-        $('#rs').html(trackObj.rs)
-        $('#rb').html(trackObj.rb)
-
-        // setting color for css variable since I made
-        // the inverse borders via ::before and ::after
-        // and you can't access them directly :\
-        document.body.style.setProperty(
-          '--rr-color',
-          '0 -10px 0 0 ' + tierColors[`t${9 - trackObj.tier}`]
-        )
-        $('.modal-tier-text').html(`Tier ${9 - trackObj.tier}`)
-        $('.modal-tier-text').css('background-color', tierColors[`t${9 - trackObj.tier}`])
-        $('.modal-tier-line').css('background-color', tierColors[`t${9 - trackObj.tier}`])
-
+        currentTrack = index + 1
+        setModalInfo(trackObj)
         $(modal).show()
       })
+    })
+
+    // everything here seems very bad :Sadge:
+    $('.previous').click(() => {
+      if ($(modal).is(':visible') && currentTrack != 1) {
+        let trackObj = objTimes[('00' + (currentTrack - 1)).slice(-3)]
+        currentTrack -= 1
+        setModalInfo(trackObj)
+      }
+    })
+
+    $('.next').click(() => {
+      if ($(modal).is(':visible') && currentTrack != 200) {
+        let trackObj = objTimes[('00' + (currentTrack + 1)).slice(-3)]
+        currentTrack += 1
+        setModalInfo(trackObj)
+      }
     })
 
     let filters = $('.tier')
