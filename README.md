@@ -1,4 +1,4 @@
-# Trackmania Turbo Super Solo medal times
+# Trackmania Turbo Medal Center
 
 __I *do not guarantee* that this page will work on all browsers, especially smoothly.__
 
