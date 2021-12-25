@@ -1,5 +1,12 @@
 <template>
   <div class="bg-black flex flex-col h-screen">
+    <transition name="modal-fade">
+      <turbo-modal
+        v-if="modalVisible"
+        @close-modal="modalVisible = false"
+        :trackId="selectedTrack"
+      />
+    </transition>
     <vue-scroll-snap class="environments" :horizontal="true">
       <div
         class="item series text-white flex flex-col items-center text-2xl font-front justify-between"
@@ -23,184 +30,249 @@
       </div>
       <div class="item canyon">
         <div
-          class="el im-canyon text-black flex justify-center bg-yellow-400 font-bold border-b-2 border-t-2 border-red-100"
+          class="im-canyon text-black flex justify-center bg-yellow-400 font-bold border-b-2 border-t-2 border-red-100"
         >
           Canyon
         </div>
-        <div class="el tracks tracks-white">
-          <turbo-track v-for="n in 10" :key="n" class="bg-gray-300" :id="n" />
-        </div>
-        <div class="el tracks tracks-green">
+        <div class="tracks tracks-white">
           <turbo-track
             v-for="n in 10"
             :key="n"
+            class="bg-gray-300"
+            :id="n"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
+          />
+        </div>
+        <div class="tracks tracks-green">
+          <turbo-track
+            v-for="n in 10"
+            :key="n + 40"
             class="bg-green-300"
             :id="n + 40"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-blue">
+        <div class="tracks tracks-blue">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 80"
             class="bg-blue-300"
             :id="n + 80"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-red">
+        <div class="tracks tracks-red">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 120"
             class="bg-red-300"
             :id="n + 120"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-black">
+        <div class="tracks tracks-black">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 160"
             class="bg-gray-700 text-white"
             :id="n + 160"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
       </div>
       <div class="item valley">
         <div
-          class="el im-canyon text-black flex justify-center bg-green-400 font-bold border-b-2 border-t-2 border-green-200"
+          class="im-canyon text-black flex justify-center bg-green-400 font-bold border-b-2 border-t-2 border-green-200"
         >
           Valley
         </div>
-        <div class="el tracks tracks-white">
+        <div class="tracks tracks-white">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 10"
             class="bg-gray-300"
             :id="n + 10"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-green">
+        <div class="tracks tracks-green">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 50"
             class="bg-green-300"
             :id="n + 50"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-blue">
+        <div class="tracks tracks-blue">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 90"
             class="bg-blue-300"
             :id="n + 90"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-red">
+        <div class="tracks tracks-red">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 130"
             class="bg-red-300"
             :id="n + 130"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-black">
+        <div class="tracks tracks-black">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 170"
             class="bg-gray-700 text-white"
             :id="n + 170"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
       </div>
       <div class="item lagoon">
         <div
-          class="el im-canyon text-black flex justify-center bg-blue-400 font-bold border-b-2 border-t-2 border-blue-200"
+          class="im-canyon text-black flex justify-center bg-blue-400 font-bold border-b-2 border-t-2 border-blue-200"
         >
           Lagoon
         </div>
-        <div class="el tracks tracks-white">
+        <div class="tracks tracks-white">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 20"
             class="bg-gray-300"
             :id="n + 20"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-green">
+        <div class="tracks tracks-green">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 60"
             class="bg-green-300"
             :id="n + 60"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-blue">
+        <div class="tracks tracks-blue">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 100"
             class="bg-blue-300"
             :id="n + 100"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-red">
+        <div class="tracks tracks-red">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 140"
             class="bg-red-300"
             :id="n + 140"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-black">
+        <div class="tracks tracks-black">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 180"
             class="bg-gray-700 text-white"
             :id="n + 180"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
       </div>
       <div class="item stadium">
         <div
-          class="el im-canyon text-black flex justify-center bg-purple-400 font-bold border-b-2 border-t-2 border-purple-200"
+          class="im-canyon text-black flex justify-center bg-purple-400 font-bold border-b-2 border-t-2 border-purple-200"
         >
           Stadium
         </div>
-        <div class="el tracks tracks-white">
+        <div class="tracks tracks-white">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 30"
             class="bg-gray-300"
             :id="n + 30"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-green">
+        <div class="tracks tracks-green">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 70"
             class="bg-green-300"
             :id="n + 70"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-blue">
+        <div class="tracks tracks-blue">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 110"
             class="bg-blue-300"
             :id="n + 110"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-red">
+        <div class="tracks tracks-red">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 150"
             class="bg-red-300"
             :id="n + 150"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
-        <div class="el tracks tracks-black">
+        <div class="tracks tracks-black">
           <turbo-track
             v-for="n in 10"
-            :key="n"
+            :key="n + 190"
             class="bg-gray-700 text-white"
             :id="n + 190"
+            @modal-request="showModal"
+            :showTiers="showTiers"
+            :disabledTracks="disabledTracks"
           />
         </div>
       </div>
@@ -208,21 +280,48 @@
     <footer class="text-white pt-0.5 border-t-2 border-gray-800 relative">
       <transition name="fade">
         <div
-          class="border-2 bg-blue-400 absolute -top-8 w-full"
+          class="p-2 border-2 rounded-md border-black bg-gray-900 absolute -top-24 w-full"
           v-show="showFilter"
         >
-          Filter content!
+          <div id="tiers" class="flex justify-between gap-1 text-black h-12">
+            <div
+              v-for="n in 8"
+              :key="n"
+              class="w-full grid place-content-center rounded-sm"
+              :class="[{ disabled: disabledTracks[n] === 1 }, 't' + n]"
+              @click="toggle(n)"
+            >
+              {{ n }}
+            </div>
+          </div>
+          <div class="buttons grid grid-cols-2 gap-1 mt-1">
+            <button
+              class="bg-gray-500 text-white rounded-sm"
+              @click="disableAll"
+            >
+              Disable all
+            </button>
+            <button
+              class="bg-gray-500 text-white rounded-sm"
+              @click="enableAll"
+            >
+              Enable all
+            </button>
+          </div>
         </div>
       </transition>
-      <div id="buttons" class="flex justify-between z-10">
-        <button class="bg-gray-900 text-gray-200 m-0.5 p-1 pl-2 pr-2">
+      <div id="buttons" class="grid grid-cols-2 z-10">
+        <button
+          class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
+          @click="toggleTiers"
+        >
           Toggle STM tiers
         </button>
         <button
-          class="bg-gray-900 text-gray-200 m-0.5 p-1 pl-2 pr-2"
+          class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
           @click="toggleFilter"
         >
-          Filter STM tiers <i class="arrow up"></i>
+          Filter by tier <i class="arrow up"></i>
         </button>
       </div>
     </footer>
@@ -231,19 +330,60 @@
 
 <script>
 import VueScrollSnap from "vue-scroll-snap";
-import TurboTrack from "./TurboTrack.vue";
+import TurboTrack from "@/components/TurboTrack.vue";
+import TurboModal from "@/components/TurboModal.vue";
 
 export default {
-  components: { VueScrollSnap, TurboTrack },
+  components: { VueScrollSnap, TurboTrack, TurboModal },
   name: "TurboMobile",
   data() {
     return {
       showFilter: false,
+      showTiers: false,
+      modalVisible: false,
+      selectedTrack: 1,
+      disabledTracks: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        7: 0,
+        8: 0,
+      },
     };
   },
   methods: {
     toggleFilter() {
       this.showFilter = !this.showFilter;
+    },
+    toggleTiers() {
+      this.showTiers = !this.showTiers;
+    },
+    showModal(id) {
+      this.selectedTrack = id;
+      this.modalVisible = true;
+      this.showFilter = false;
+    },
+    closeModal() {
+      this.modalVisible = false;
+    },
+    disable(tier) {
+      this.toggle(tier);
+    },
+    disableAll() {
+      for (let i = 1; i <= 8; i++) {
+        this.disabledTracks[i] = 1;
+      }
+    },
+    enableAll() {
+      for (let i = 1; i <= 8; i++) {
+        this.disabledTracks[i] = 0;
+      }
+    },
+    toggle(tier) {
+      this.disabledTracks[tier] = 1 - (this.disabledTracks[tier] | 0);
     },
   },
 };
@@ -295,11 +435,21 @@ export default {
 
 @keyframes slide {
   0% {
-    top: 0;
-  }
-  100% {
     top: -2rem;
   }
+  100% {
+    top: -6rem;
+  }
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
 }
 
 #breathing-arrow {
