@@ -9,7 +9,7 @@
     </transition>
     <div class="flex justify-center mt-2">
       <div class="grid grid-cols-5 w-full max-w-7xl gap-1">
-        <img src="@/assets/solo.jpg" alt="Turbo" />
+        <img src="@/assets/solo.jpg" alt="Canyon" />
         <img src="@/assets/canyon.jpg" alt="Canyon" />
         <img src="@/assets/valley.jpg" alt="Valley" />
         <img src="@/assets/lagoon.jpg" alt="Lagoon" />
@@ -159,7 +159,7 @@
             >dequubi</a
           >
         </p>
-        <p id="ver" class="text-sm">v3.0.0</p>
+        <p id="ver" class="text-sm">v3.0.1</p>
       </div>
       <p class="grid place-content-center text-center">
         All information was taken form the
@@ -231,6 +231,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.logo {
+  background-image: url("../assets/solo.jpg");
+}
+.canyon {
+  background-image: url("../assets/canyon.jpg");
+}
+.lagoon {
+  background-image: url("../assets/lagoon.jpg");
+}
+.valley {
+  background-image: url("../assets/valley.jpg");
+}
+.stadium {
+  background-image: url("../assets/stadium.jpg");
+}
 .add-row-gap {
   row-gap: 0.25rem;
 }

@@ -30,7 +30,7 @@
               >dequubi</a
             >
           </p>
-          <p id="ver" class="text-sm">v3.0.0</p>
+          <p id="ver" class="text-sm">v3.0.1</p>
         </div>
       </div>
       <div class="item canyon">
