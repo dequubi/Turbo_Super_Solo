@@ -22,7 +22,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .t1 {
   background-color: #00ff28;
 }

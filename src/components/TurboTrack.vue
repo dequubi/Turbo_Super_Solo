@@ -57,4 +57,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.number {
+  border-image-slice: 1 !important;
+  border: 3px solid;
+  border-image-source: linear-gradient(143.23deg, #ffffff20 0%, #ffffff40 100%);
+  &:active {
+    border-image-source: linear-gradient(
+      143.23deg,
+      #ffffff40 0%,
+      #ffffff20 100%
+    );
+  }
+}
+</style>
