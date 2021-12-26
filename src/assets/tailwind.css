@@ -3,10 +3,13 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geo:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
 
 @layer components {
     .tracks {
-        @apply grid grid-cols-5 text-center h-1/5 gap-1;
+        @apply grid grid-cols-5 text-center h-1/5 gap-1 font-semibold;
+        color: white;
     },
     .item {
         @apply flex flex-col gap-1 p-0.5 pb-1;

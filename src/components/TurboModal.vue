@@ -78,15 +78,23 @@
       >
         <button
           type="button"
-          class="bg-black rounded-sm"
+          class="rounded-sm bg-black border-2 border-gray-900"
           @click="previousTrack"
         >
           Previous
         </button>
-        <button type="button" class="bg-red-500 rounded-sm" @click="close">
+        <button
+          type="button"
+          class="rounded-sm bg-red-500 border-2 border-red-400"
+          @click="close"
+        >
           Close
         </button>
-        <button type="button" class="bg-black rounded-sm" @click="nextTrack">
+        <button
+          type="button"
+          class="rounded-sm bg-black border-2 border-gray-900"
+          @click="nextTrack"
+        >
           Next
         </button>
       </div>

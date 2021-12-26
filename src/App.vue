@@ -50,4 +50,24 @@ export default {
 .disabled {
   opacity: 0.3;
 }
+.s-white {
+  background-color: #949494;
+  color: white;
+}
+.s-green {
+  background-color: #679d2d;
+  color: white;
+}
+.s-blue {
+  background-color: #428bac;
+  color: white;
+}
+.s-red {
+  background-color: #ff311b;
+  color: white;
+}
+.s-black {
+  background-color: #202020;
+  color: white;
+}
 </style>

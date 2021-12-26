@@ -38,7 +38,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n"
-            class="bg-gray-300"
+            class="s-white"
             :id="n"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -49,7 +49,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 40"
-            class="bg-green-300"
+            class="s-green"
             :id="n + 40"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -60,7 +60,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 80"
-            class="bg-blue-300"
+            class="s-blue"
             :id="n + 80"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -71,7 +71,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 120"
-            class="bg-red-300"
+            class="s-red"
             :id="n + 120"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -82,7 +82,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 160"
-            class="bg-gray-700 text-white"
+            class="s-black"
             :id="n + 160"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -100,7 +100,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 10"
-            class="bg-gray-300"
+            class="s-white"
             :id="n + 10"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -111,7 +111,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 50"
-            class="bg-green-300"
+            class="s-green"
             :id="n + 50"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -122,7 +122,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 90"
-            class="bg-blue-300"
+            class="s-blue"
             :id="n + 90"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -133,7 +133,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 130"
-            class="bg-red-300"
+            class="s-red"
             :id="n + 130"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -144,7 +144,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 170"
-            class="bg-gray-700 text-white"
+            class="s-black"
             :id="n + 170"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -162,7 +162,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 20"
-            class="bg-gray-300"
+            class="s-white"
             :id="n + 20"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -173,7 +173,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 60"
-            class="bg-green-300"
+            class="s-green"
             :id="n + 60"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -184,7 +184,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 100"
-            class="bg-blue-300"
+            class="s-blue"
             :id="n + 100"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -195,7 +195,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 140"
-            class="bg-red-300"
+            class="s-red"
             :id="n + 140"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -206,7 +206,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 180"
-            class="bg-gray-700 text-white"
+            class="s-black"
             :id="n + 180"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -224,7 +224,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 30"
-            class="bg-gray-300"
+            class="s-white"
             :id="n + 30"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -235,7 +235,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 70"
-            class="bg-green-300"
+            class="s-green"
             :id="n + 70"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -246,7 +246,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 110"
-            class="bg-blue-300"
+            class="s-blue"
             :id="n + 110"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -257,7 +257,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 150"
-            class="bg-red-300"
+            class="s-red"
             :id="n + 150"
             @modal-request="showModal"
             :showTiers="showTiers"
@@ -268,7 +268,7 @@
           <turbo-track
             v-for="n in 10"
             :key="n + 190"
-            class="bg-gray-700 text-white"
+            class="s-black"
             :id="n + 190"
             @modal-request="showModal"
             :showTiers="showTiers"
