@@ -1,6 +1,6 @@
 <template>
-  <turbo-mobile v-if="mobile" />
-  <turbo-desktop v-else />
+  <turbo-mobile v-if="mobile" @force-desktop="forceChange" />
+  <turbo-desktop v-else @force-mobile="forceChange" />
 </template>
 
 <script>
@@ -18,6 +18,11 @@ export default {
     return {
       mobile: isMobile,
     };
+  },
+  methods: {
+    forceChange() {
+      this.mobile = !this.mobile;
+    },
   },
 };
 </script>

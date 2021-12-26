@@ -4,7 +4,7 @@
     class="flex flex-col justify-between"
     :class="{ disabled: disabledTracks[tracks[$attrs.id - 1]['tier']] === 1 }"
   >
-    <div class="number grid place-items-center h-full">
+    <div class="number grid place-items-center h-full select-none">
       {{ trackNumber }}
     </div>
     <div class="w-full bg-black border-t-4 border-black" v-if="showTiers">
@@ -62,11 +62,18 @@ export default {
   border-image-slice: 1 !important;
   border: 3px solid;
   border-image-source: linear-gradient(143.23deg, #ffffff20 0%, #ffffff40 100%);
+  &:hover {
+    border-image-source: linear-gradient(
+      143.23deg,
+      #ffffff70 0%,
+      #ffffff40 100%
+    );
+  }
   &:active {
     border-image-source: linear-gradient(
       143.23deg,
-      #ffffff40 0%,
-      #ffffff20 100%
+      #00000040 0%,
+      #00000070 100%
     );
   }
 }

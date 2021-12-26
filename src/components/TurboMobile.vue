@@ -12,11 +12,16 @@
         class="item series text-white flex flex-col items-center text-2xl font-front justify-between"
       >
         <img src="../assets/turbo-logo.png" alt="Turbo logo" class="mt-8" />
-        <div id="swipe-prompt" class="flex border-gray-800 pb-3 pt-3">
-          <p class="">Swipe to see tracks</p>
+        <div id="swipe-prompt" class="flex border-gray-800 pb-3 pt-3 mt-8">
+          <p>Swipe to see tracks</p>
           <div id="breathing-arrow" class="ml-3 mt-0.5">&#10148;</div>
         </div>
         <div class="info flex flex-col items-center">
+          <a
+            class="cursor-pointer text-blue-400 text-sm mb-10"
+            @click="forceDesktop"
+            >Force desktop version</a
+          >
           <p id="author">
             made by
             <a
@@ -369,9 +374,6 @@ export default {
     closeModal() {
       this.modalVisible = false;
     },
-    disable(tier) {
-      this.toggle(tier);
-    },
     disableAll() {
       for (let i = 1; i <= 8; i++) {
         this.disabledTracks[i] = 1;
@@ -384,6 +386,9 @@ export default {
     },
     toggle(tier) {
       this.disabledTracks[tier] = 1 - (this.disabledTracks[tier] | 0);
+    },
+    forceDesktop() {
+      this.$emit("forceDesktop");
     },
   },
 };
