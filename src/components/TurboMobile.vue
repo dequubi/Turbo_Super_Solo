@@ -30,7 +30,7 @@
               >dequubi</a
             >
           </p>
-          <p id="ver" class="text-sm">v3.0.1</p>
+          <p id="ver" class="text-sm">{{ version }}</p>
         </div>
       </div>
       <div class="item canyon">
@@ -337,12 +337,14 @@
 import VueScrollSnap from "vue-scroll-snap";
 import TurboTrack from "@/components/TurboTrack.vue";
 import TurboModal from "@/components/TurboModal.vue";
+import versionjson from "@/js/version.json";
 
 export default {
   components: { VueScrollSnap, TurboTrack, TurboModal },
   name: "TurboMobile",
   data() {
     return {
+      version: versionjson["version"],
       showFilter: false,
       showTiers: false,
       modalVisible: false,

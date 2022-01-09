@@ -5,6 +5,7 @@
         v-if="modalVisible"
         @close-modal="modalVisible = false"
         :trackId="selectedTrack"
+        :platform="'desktop'"
       />
     </transition>
     <div class="flex justify-center mt-2">
