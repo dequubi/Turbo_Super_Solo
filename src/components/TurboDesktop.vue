@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black flex flex-col h-screen">
+  <div class="bg-black flex flex-col h-screen overflow-y-auto">
     <transition name="modal-fade">
       <turbo-modal
         v-if="modalVisible"
@@ -193,6 +193,14 @@
         >
       </p>
     </div>
+    <p class="mt-6 text-gray-500 flex justify-center">
+      Found an issue? Leave it
+      <a
+        href="https://github.com/ShaidenUNI/Turbo_Super_Solo/issues"
+        class="text-blue-200 text-center hover:underline ml-1.5"
+        >here</a
+      >.
+    </p>
   </div>
 </template>
 

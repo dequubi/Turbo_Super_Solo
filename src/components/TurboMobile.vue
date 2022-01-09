@@ -32,6 +32,14 @@
             >
           </p>
           <p id="ver" class="text-sm">{{ version }}</p>
+          <p class="mt-6 text-gray-500 flex justify-center text-sm mb-4">
+            Found an issue? Leave it
+            <a
+              href="https://github.com/ShaidenUNI/Turbo_Super_Solo/issues"
+              class="text-blue-200 text-center hover:underline ml-1.5"
+              >here</a
+            >.
+          </p>
         </div>
       </div>
       <div class="item canyon">

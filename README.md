@@ -11,6 +11,7 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 ## Version 3
 ### 3.1.0
 - Added console medal times support
+- Added link to an github issue page
 ### 3.0.2
 - Added thousandths to regular medals
 - Made modal window font a bit larger on PC version
