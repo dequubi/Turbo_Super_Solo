@@ -2,16 +2,19 @@
   <div
     @click="showModalRequest"
     class="flex flex-col justify-between"
-    :class="{ disabled: disabledTracks[tracks[$attrs.id - 1]['tier']] === 1 }"
+    :class="{ disabled: disabledTracks[tracks()[$attrs.id - 1]['tier']] === 1 }"
   >
     <div class="number grid place-items-center h-full select-none">
       {{ trackNumber }}
     </div>
-    <div class="w-full bg-black border-t-4 border-black" v-if="showTiers">
+    <div
+      class="w-full bg-black border-t-4 border-black"
+      v-if="flags['showTiers']"
+    >
       <div
         class="difficulty text-sm h-2"
-        :class="'t' + tracks[$attrs.id - 1]['tier']"
-        :style="{ width: (100 / 8) * tracks[$attrs.id - 1]['tier'] + '%' }"
+        :class="'t' + tracks()[$attrs.id - 1]['tier']"
+        :style="{ width: (100 / 8) * tracks()[$attrs.id - 1]['tier'] + '%' }"
       ></div>
     </div>
   </div>
@@ -19,13 +22,20 @@
 
 <script>
 import trackInfo from "@/js/trackinfo.json";
+import trackInfoConsole from "@/js/trackinfoConsole.json";
 
 export default {
   name: "TurboTrack",
   props: {
-    showTiers: {
-      type: Boolean,
-      default: false,
+    flags: {
+      showTiers: {
+        type: Boolean,
+        default: false,
+      },
+      isConsole: {
+        type: Boolean,
+        default: false,
+      },
     },
     disabledTracks: {
       default: {
@@ -43,7 +53,6 @@ export default {
   data() {
     return {
       trackNumber: this.formatTrackNumber(this.$attrs.id),
-      tracks: trackInfo,
     };
   },
   methods: {
@@ -52,6 +61,9 @@ export default {
     },
     showModalRequest() {
       this.$emit("modal-request", this.$attrs.id);
+    },
+    tracks() {
+      return this.flags["isConsole"] ? trackInfoConsole : trackInfo;
     },
   },
 };

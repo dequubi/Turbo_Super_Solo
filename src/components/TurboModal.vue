@@ -16,7 +16,7 @@
           <div class="container">
             <youtube-iframe
               class="responsive-iframe"
-              ref="yt"
+              ref="ytb"
               :player-width="'100%'"
               :player-height="'100%'"
               :video-id="tracks[currentTrack - 1]['yt']"
@@ -29,7 +29,10 @@
           >
             Tier {{ tracks[currentTrack - 1]["tier"] }}
           </div>
-          <div class="flex justify-between p-2 pt-1">
+          <div
+            class="grid p-2 pt-1"
+            :class="{ 'grid-cols-3': isConsole, 'grid-cols-2': !isConsole }"
+          >
             <div class="left">
               <div class="text-xl mb-1" :class="{ 'pc-font-size': isDesktop }">
                 Regular Solo {{ isDesktop ? "Medals" : "" }}
@@ -74,6 +77,9 @@
                 ></div>
                 {{ tracks[currentTrack - 1]["b"] }}
               </div>
+            </div>
+            <div class="ml-auto mr-auto mt-1 text-gray-700" v-if="isConsole">
+              console ver.
             </div>
             <div class="right flex flex-col items-end">
               <div class="text-xl mb-1" :class="{ 'pc-font-size': isDesktop }">
@@ -160,6 +166,7 @@
 
 <script>
 import trackInfo from "@/js/trackinfo.json";
+import trackInfoConsole from "@/js/trackinfoConsole.json";
 
 export default {
   name: "TurboModal",
@@ -172,10 +179,14 @@ export default {
       type: String,
       default: "",
     },
+    isConsole: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      tracks: trackInfo,
+      tracks: this.getTracks(),
       currentTrack: this.trackId,
       isDesktop: this.platform === "desktop",
     };
@@ -187,15 +198,18 @@ export default {
     previousTrack() {
       if (this.currentTrack < 2) return;
       this.currentTrack -= 1;
-      this.$refs.yt.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
+      this.$refs.ytb.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
     },
     nextTrack() {
       if (this.currentTrack > 199) return;
       this.currentTrack += 1;
-      this.$refs.yt.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
+      this.$refs.ytb.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
     },
     changeVolume() {
-      this.$refs.yt.setVolume(10);
+      this.$refs.ytb.setVolume(10);
+    },
+    getTracks() {
+      return this.isConsole ? trackInfoConsole : trackInfo;
     },
   },
 };

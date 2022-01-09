@@ -5,6 +5,7 @@
         v-if="modalVisible"
         @close-modal="modalVisible = false"
         :trackId="selectedTrack"
+        :isConsole="flags['isConsole']"
       />
     </transition>
     <vue-scroll-snap class="environments" :horizontal="true">
@@ -46,7 +47,7 @@
             class="s-white"
             :id="n"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -57,7 +58,7 @@
             class="s-green"
             :id="n + 40"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -68,7 +69,7 @@
             class="s-blue"
             :id="n + 80"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -79,7 +80,7 @@
             class="s-red"
             :id="n + 120"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -90,7 +91,7 @@
             class="s-black"
             :id="n + 160"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -108,7 +109,7 @@
             class="s-white"
             :id="n + 10"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -119,7 +120,7 @@
             class="s-green"
             :id="n + 50"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -130,7 +131,7 @@
             class="s-blue"
             :id="n + 90"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -141,7 +142,7 @@
             class="s-red"
             :id="n + 130"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -152,7 +153,7 @@
             class="s-black"
             :id="n + 170"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -170,7 +171,7 @@
             class="s-white"
             :id="n + 20"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -181,7 +182,7 @@
             class="s-green"
             :id="n + 60"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -192,7 +193,7 @@
             class="s-blue"
             :id="n + 100"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -203,7 +204,7 @@
             class="s-red"
             :id="n + 140"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -214,7 +215,7 @@
             class="s-black"
             :id="n + 180"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -232,7 +233,7 @@
             class="s-white"
             :id="n + 30"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -243,7 +244,7 @@
             class="s-green"
             :id="n + 70"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -254,7 +255,7 @@
             class="s-blue"
             :id="n + 110"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -265,7 +266,7 @@
             class="s-red"
             :id="n + 150"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -276,7 +277,7 @@
             class="s-black"
             :id="n + 190"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -318,15 +319,23 @@
       <div id="buttons" class="grid grid-cols-2 z-10">
         <button
           class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
-          @click="toggleTiers"
+          @click="flags['showTiers'] = !flags['showTiers']"
         >
           Toggle STM tiers
         </button>
         <button
           class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
-          @click="toggleFilter"
+          @click="showFilter = !showFilter"
         >
           Filter by tier <i class="arrow up"></i>
+        </button>
+      </div>
+      <div class="grid grid-cols-1">
+        <button
+          class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
+          @click="flags['isConsole'] = !flags['isConsole']"
+        >
+          Switch to {{ flags["isConsole"] ? "PC" : "console" }} version
         </button>
       </div>
     </footer>
@@ -346,7 +355,10 @@ export default {
     return {
       version: versionjson["version"],
       showFilter: false,
-      showTiers: false,
+      flags: {
+        showTiers: false,
+        isConsole: false,
+      },
       modalVisible: false,
       selectedTrack: 1,
       disabledTracks: {
@@ -362,12 +374,6 @@ export default {
     };
   },
   methods: {
-    toggleFilter() {
-      this.showFilter = !this.showFilter;
-    },
-    toggleTiers() {
-      this.showTiers = !this.showTiers;
-    },
     showModal(id) {
       this.selectedTrack = id;
       this.modalVisible = true;

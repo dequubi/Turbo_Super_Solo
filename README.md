@@ -9,24 +9,27 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.1.0
+- Added console medal times support
+### 3.0.2
+- Added thousandths to regular medals
+- Made modal window font a bit larger on PC version
+### 3.0.1
+- Build fixes
 ### 3.0.0
 - Fully rewritten in Vue 3
 - Added mobile support
 - Changed modal window a bit
 - Restructured all medal times into JSON
 - Changed time format from `x'xx'xxx` to `x:xx.xxx`
-### 3.0.1
-- Build fixes
-### 3.0.2
-- Added thousandths to regular medals
 
 ## Version 2
-
+### 2.0.0
 - Rewritten in JQuery
 - Added STM tiers
 - Added filter by tier
 - Code cleanup
 
 ## Version 1
-
+### 1.0.0
 - Initial release

@@ -6,6 +6,7 @@
         @close-modal="modalVisible = false"
         :trackId="selectedTrack"
         :platform="'desktop'"
+        :isConsole="flags['isConsole']"
       />
     </transition>
     <div class="flex justify-center mt-2">
@@ -20,7 +21,7 @@
           class="tracks gap-0.5 h-full"
           v-for="n in 4"
           :key="n"
-          :class="{ 'add-row-gap': showTiers }"
+          :class="{ 'add-row-gap': flags['showTiers'] }"
         >
           <turbo-track
             v-for="m in 10"
@@ -28,7 +29,7 @@
             class="s-white"
             :id="m + (n - 1) * 10 + 0"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -37,7 +38,7 @@
           class="tracks gap-0.5 h-full"
           v-for="n in 4"
           :key="n"
-          :class="{ 'add-row-gap': showTiers }"
+          :class="{ 'add-row-gap': flags['showTiers'] }"
         >
           <turbo-track
             v-for="m in 10"
@@ -45,7 +46,7 @@
             class="s-green"
             :id="m + (n - 1) * 10 + 40"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -54,7 +55,7 @@
           class="tracks gap-0.5 h-full"
           v-for="n in 4"
           :key="n"
-          :class="{ 'add-row-gap': showTiers }"
+          :class="{ 'add-row-gap': flags['showTiers'] }"
         >
           <turbo-track
             v-for="m in 10"
@@ -62,7 +63,7 @@
             class="s-blue"
             :id="m + (n - 1) * 10 + 80"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -71,7 +72,7 @@
           class="tracks gap-0.5 h-full"
           v-for="n in 4"
           :key="n"
-          :class="{ 'add-row-gap': showTiers }"
+          :class="{ 'add-row-gap': flags['showTiers'] }"
         >
           <turbo-track
             v-for="m in 10"
@@ -79,7 +80,7 @@
             class="s-red"
             :id="m + (n - 1) * 10 + 120"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -88,7 +89,7 @@
           class="tracks gap-0.5 h-full"
           v-for="n in 4"
           :key="n"
-          :class="{ 'add-row-gap': showTiers }"
+          :class="{ 'add-row-gap': flags['showTiers'] }"
         >
           <turbo-track
             v-for="m in 10"
@@ -96,7 +97,7 @@
             class="s-black"
             :id="m + (n - 1) * 10 + 160"
             @modal-request="showModal"
-            :showTiers="showTiers"
+            :flags="flags"
             :disabledTracks="disabledTracks"
           />
         </div>
@@ -105,13 +106,34 @@
     <div class="mt-2 border-t-2 border-gray-900"></div>
     <div class="footer flex self-center max-w-7xl gap-20 w-full mt-2">
       <div class="buttons flex justify-between w-full">
-        <button
-          class="bg-gray-500 text-white rounded-sm p-1 pl-2 pr-2 w-64 h-12 hover:bg-gray-400 active:bg-gray-500 select-none"
-          @click="toggleTiers"
-        >
-          Toggle STM tiers
-        </button>
-        <div id="tier-toggles">
+        <div>
+          <button
+            class="bg-gray-500 text-white rounded-sm p-1 pl-2 pr-2 w-64 h-12 hover:bg-gray-400 active:bg-gray-500 select-none"
+            @click="flags['showTiers'] = !flags['showTiers']"
+          >
+            Toggle STM tiers
+          </button>
+          <div class="buttons flex gap-1 mt-1">
+            <button
+              class="bg-gray-500 text-white rounded-sm hover:bg-gray-400 active:bg-gray-500 select-none w-full"
+              @click="flags['isConsole'] = !flags['isConsole']"
+            >
+              Switch to {{ flags["isConsole"] ? "PC" : "console" }} version
+            </button>
+            <div
+              class="tooltip bg-gray-500 text-white text-center rounded-sm select-none w-8"
+            >
+              ?
+              <span class="tooltip-text text-left rounded-sm flex items-center"
+                >On consoles all thousandths on STMs are rounded down, which
+                makes most STMs a bit harder to get. This also changes other
+                super medals.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div id="tier-toggles" class="z-10">
           <div
             id="tiers"
             class="flex justify-between gap-1 text-black h-12 select-none"
@@ -185,8 +207,10 @@ export default {
   data() {
     return {
       version: versionjson["version"],
-      showFilter: false,
-      showTiers: false,
+      flags: {
+        showTiers: false,
+        isConsole: false,
+      },
       modalVisible: false,
       selectedTrack: 1,
       disabledTracks: {
@@ -202,13 +226,9 @@ export default {
     };
   },
   methods: {
-    toggleTiers() {
-      this.showTiers = !this.showTiers;
-    },
     showModal(id) {
       this.selectedTrack = id;
       this.modalVisible = true;
-      this.showFilter = false;
     },
     closeModal() {
       this.modalVisible = false;
@@ -256,5 +276,44 @@ export default {
   &:hover {
     border: 2px solid #ffffffaa;
   }
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  &:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    z-index: 20;
+
+    &:hover {
+      opacity: 0;
+      z-index: 0;
+    }
+  }
+
+  & .tooltip-text::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: 21px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #6b7280 transparent transparent;
+  }
+}
+.tooltip-text {
+  background-color: #00000066;
+  visibility: visible;
+  position: absolute;
+  z-index: 0;
+  top: -52px;
+  left: 150%;
+  width: 380px;
+  height: 76px;
+  padding-left: 0.5rem;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 </style>
