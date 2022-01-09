@@ -10,7 +10,7 @@
     </transition>
     <div class="flex justify-center mt-2">
       <div class="grid grid-cols-5 w-full max-w-7xl gap-1">
-        <img src="@/assets/solo.jpg" alt="Canyon" />
+        <img src="@/assets/solo.jpg" alt="Turbo" />
         <img src="@/assets/canyon.jpg" alt="Canyon" />
         <img src="@/assets/valley.jpg" alt="Valley" />
         <img src="@/assets/lagoon.jpg" alt="Lagoon" />
@@ -160,7 +160,7 @@
             >dequubi</a
           >
         </p>
-        <p id="ver" class="text-sm">v3.0.1</p>
+        <p id="ver" class="text-sm">{{ version }}</p>
       </div>
       <p class="grid place-content-center text-center">
         All information was taken form the
@@ -177,12 +177,14 @@
 <script>
 import TurboTrack from "@/components/TurboTrack.vue";
 import TurboModal from "@/components/TurboModal.vue";
+import versionjson from "@/js/version.json";
 
 export default {
   name: "TurboDesktop",
   components: { TurboTrack, TurboModal },
   data() {
     return {
+      version: versionjson["version"],
       showFilter: false,
       showTiers: false,
       modalVisible: false,
