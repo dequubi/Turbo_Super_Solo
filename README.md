@@ -9,6 +9,9 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.1.1
+- Added missing modal transition styles on PC version
+- Made modal buttons non-selectable
 ### 3.1.0
 - Added console medal times support
 - Added link to an github issue page

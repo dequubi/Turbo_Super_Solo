@@ -136,7 +136,7 @@
       >
         <button
           type="button"
-          class="rounded-sm bg-black border-2 border-gray-900 hover:bg-gray-900 active:bg-black"
+          class="rounded-sm bg-black border-2 border-gray-900 hover:bg-gray-900 active:bg-black select-none"
           :class="{ disabled: currentTrack == 1 }"
           :disabled="currentTrack == 1"
           @click="previousTrack"
@@ -145,14 +145,14 @@
         </button>
         <button
           type="button"
-          class="rounded-sm bg-red-500 border-2 border-red-400 hover:bg-red-400 active:bg-red-600"
+          class="rounded-sm bg-red-500 border-2 border-red-400 hover:bg-red-400 active:bg-red-600 select-none"
           @click="close"
         >
           Close
         </button>
         <button
           type="button"
-          class="rounded-sm bg-black border-2 border-gray-900 hover:bg-gray-900 active:bg-black"
+          class="rounded-sm bg-black border-2 border-gray-900 hover:bg-gray-900 active:bg-black select-none"
           :class="{ disabled: currentTrack == 200 }"
           :disabled="currentTrack == 200"
           @click="nextTrack"
