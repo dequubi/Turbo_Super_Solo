@@ -463,16 +463,6 @@ export default {
   }
 }
 
-.modal-fade-enter-active,
-.modal-fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.modal-fade-enter-from,
-.modal-fade-leave-to {
-  opacity: 0;
-}
-
 #breathing-arrow {
   -webkit-animation: breathing 3s ease-out infinite normal;
   animation: breathing 3s ease-out infinite normal;
