@@ -1,8 +1,9 @@
 <template>
   <div
-    class="modal-backdrop bg-black bg-opacity-40 fixed z-50 top-0 left-0 w-full h-full"
+    class="modal-backdrop bg-black bg-opacity-40 fixed z-30 top-0 left-0 w-full h-full"
+    @click.self="close"
   >
-    <div class="content w-full ml-auto flex flex-col">
+    <div class="content w-full ml-auto flex flex-col z-50" @click.self="close">
       <div
         class="modal bg-black text-white m-4 rounded-sm self-center max-w-xl w-11/12"
       >
@@ -13,6 +14,76 @@
         </header>
 
         <div class="modal-body w-full">
+          <div class="tabs">
+            <ul
+              class="tabs-header flex pl-2 pr-2 border-b-2"
+              :class="'t' + tracks[currentTrack - 1]['tier']"
+            >
+              <li
+                @click="tabChange(0)"
+                :class="[
+                  { 'not-selected': selectedTab != 0 },
+                  't' + tracks[currentTrack - 1]['tier'],
+                ]"
+              >
+                STM
+              </li>
+              <li
+                @click="tabChange(1)"
+                class="flex gap-1"
+                :class="[
+                  { 'not-selected': selectedTab != 1 },
+                  't' + tracks[currentTrack - 1]['tier'],
+                ]"
+              >
+                WR
+                <img
+                  v-if="tracks[currentTrack - 1]['i'] == 1"
+                  class="self-center"
+                  src="@/assets/padviz.svg"
+                  alt="[inputs]"
+                  width="20"
+                  height="20"
+                />
+              </li>
+              <li
+                v-if="tracks[currentTrack - 1].hasOwnProperty('alt')"
+                @click="tabChange(2)"
+                class="flex gap-1"
+                :class="[
+                  { 'not-selected': selectedTab != 2 },
+                  't' + tracks[currentTrack - 1]['tier'],
+                ]"
+              >
+                Alternative
+                <img
+                  class="self-center"
+                  src="@/assets/padviz.svg"
+                  alt="[inputs]"
+                  width="20"
+                  height="20"
+                />
+              </li>
+              <li
+                v-if="tracks[currentTrack - 1].hasOwnProperty('nc')"
+                @click="tabChange(3)"
+                class="flex gap-1"
+                :class="[
+                  { 'not-selected': selectedTab != 3 },
+                  't' + tracks[currentTrack - 1]['tier'],
+                ]"
+              >
+                No cut
+                <img
+                  class="self-center"
+                  src="@/assets/padviz.svg"
+                  alt="[inputs]"
+                  width="20"
+                  height="20"
+                />
+              </li>
+            </ul>
+          </div>
           <div class="container">
             <youtube-iframe
               class="responsive-iframe"
@@ -24,13 +95,26 @@
             />
           </div>
           <div
-            :class="'t' + tracks[currentTrack - 1]['tier']"
-            class="mt-2 grid place-content-center text-black font-bold"
+            class="tier-container place-content-center text-black font-bold flex"
           >
-            Tier {{ tracks[currentTrack - 1]["tier"] }}
+            <div
+              class="line w-full"
+              :class="'t' + tracks[currentTrack - 1]['tier']"
+            ></div>
+            <div
+              id="tier"
+              class="w-32 text-center"
+              :class="'t' + tracks[currentTrack - 1]['tier']"
+            >
+              Tier {{ tracks[currentTrack - 1]["tier"] }}
+            </div>
+            <div
+              class="line w-full"
+              :class="'t' + tracks[currentTrack - 1]['tier']"
+            ></div>
           </div>
           <div
-            class="grid p-2 pt-1"
+            class="grid p-2 pt-1 -mt-5"
             :class="{ 'grid-cols-3': isConsole, 'grid-cols-2': !isConsole }"
           >
             <div class="left">
@@ -170,6 +254,7 @@ import trackInfoConsole from "@/js/trackinfoConsole.json";
 
 export default {
   name: "TurboModal",
+
   props: {
     trackId: {
       type: Number,
@@ -189,21 +274,44 @@ export default {
       tracks: this.getTracks(),
       currentTrack: this.trackId,
       isDesktop: this.platform === "desktop",
+      selectedTab: 0,
     };
   },
   methods: {
     close() {
       this.$emit("closeModal");
+      this.selectedTab = 0;
     },
     previousTrack() {
       if (this.currentTrack < 2) return;
       this.currentTrack -= 1;
-      this.$refs.ytb.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
+      if (
+        this.selectedTab == 2 &&
+        !("alt" in this.tracks[this.currentTrack - 1])
+      )
+        this.selectedTab = 0;
+      if (
+        this.selectedTab == 3 &&
+        !("nc" in this.tracks[this.currentTrack - 1])
+      )
+        this.selectedTab = 0;
+      this.tabChange(this.selectedTab);
     },
     nextTrack() {
       if (this.currentTrack > 199) return;
       this.currentTrack += 1;
-      this.$refs.ytb.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
+      if (
+        this.selectedTab == 2 &&
+        !("alt" in this.tracks[this.currentTrack - 1])
+      )
+        this.selectedTab = 0;
+      if (
+        this.selectedTab == 3 &&
+        !("nc" in this.tracks[this.currentTrack - 1])
+      )
+        this.selectedTab = 0;
+      this.tabChange(this.selectedTab);
+      //this.$refs.ytb.cueVideoById(this.tracks[this.currentTrack - 1]["yt"]);
     },
     changeVolume() {
       this.$refs.ytb.setVolume(10);
@@ -211,11 +319,33 @@ export default {
     getTracks() {
       return this.isConsole ? trackInfoConsole : trackInfo;
     },
+    tabChange(tab) {
+      this.selectedTab = tab;
+      let id = "F2GL45MTUP0"; // default value
+      switch (tab) {
+        case 0:
+          id = this.tracks[this.currentTrack - 1]["yt"];
+          break;
+        case 1:
+          id = this.tracks[this.currentTrack - 1]["wr"];
+          break;
+        case 2:
+          id = this.tracks[this.currentTrack - 1]["alt"];
+          break;
+        case 3:
+          id = this.tracks[this.currentTrack - 1]["nc"];
+          break;
+        default:
+          id = "F2GL45MTUP0";
+          break;
+      }
+      this.$refs.ytb.cueVideoById(id);
+    },
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   position: relative;
   overflow: hidden;
@@ -248,6 +378,50 @@ export default {
 
 .b {
   background-color: #a16d1e;
+}
+
+.tabs {
+  .tabs-header {
+    background-color: black;
+  }
+
+  ul {
+    gap: 1px;
+    li {
+      color: black;
+      margin-bottom: -1px;
+      user-select: none;
+      cursor: pointer;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-top: 1px solid black;
+      padding-left: 5px;
+      padding-right: 5px;
+      &.not-selected {
+        margin-bottom: 0px;
+        background-color: #000000;
+        color: white;
+        & img {
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+            saturate(7496%) hue-rotate(323deg) brightness(102%) contrast(104%);
+        }
+        &:hover {
+          background-color: #2c2c2c;
+        }
+      }
+    }
+  }
+}
+
+.tier-container {
+  .line {
+    height: 2px;
+  }
+
+  #tier {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 }
 
 .pc-font-size-tm {

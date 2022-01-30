@@ -30,27 +30,35 @@ export default {
 <style lang="scss">
 .t1 {
   background-color: #00ff28;
+  border-color: #00ff28;
 }
 .t2 {
   background-color: #7be900;
+  border-color: #7be900;
 }
 .t3 {
   background-color: #a8d000;
+  border-color: #a8d000;
 }
 .t4 {
   background-color: #c8b600;
+  border-color: #c8b600;
 }
 .t5 {
   background-color: #e09800;
+  border-color: #e09800;
 }
 .t6 {
   background-color: #f17700;
+  border-color: #f17700;
 }
 .t7 {
   background-color: #fb5000;
+  border-color: #fb5000;
 }
 .t8 {
   background-color: #ff0000;
+  border-color: #ff0000;
 }
 .disabled {
   opacity: 0.3;

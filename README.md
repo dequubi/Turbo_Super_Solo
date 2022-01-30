@@ -9,6 +9,10 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.2.0
+- Added multiple replays to choose from (WR, Alternative and No cut) to every track
+- Added padviz symbol in replay tab if it has inputs
+- Reworked visuals of tier bar (looks like version 2 now, just a bit uglier)
 ### 3.1.2
 - Changed PC STM time on track #086
 ### 3.1.1
