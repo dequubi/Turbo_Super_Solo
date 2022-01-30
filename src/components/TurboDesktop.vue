@@ -262,21 +262,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.logo {
-  background-image: url("../assets/solo.jpg");
-}
-.canyon {
-  background-image: url("../assets/canyon.jpg");
-}
-.lagoon {
-  background-image: url("../assets/lagoon.jpg");
-}
-.valley {
-  background-image: url("../assets/valley.jpg");
-}
-.stadium {
-  background-image: url("../assets/stadium.jpg");
-}
 .add-row-gap {
   row-gap: 0.25rem;
 }
