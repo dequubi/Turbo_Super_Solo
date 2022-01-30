@@ -9,6 +9,8 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.1.2
+- Changed PC STM time on track #086
 ### 3.1.1
 - Added missing modal transition styles on PC version
 - Made modal buttons non-selectable
