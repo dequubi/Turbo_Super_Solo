@@ -23,19 +23,6 @@
             @click="forceDesktop"
             >Force desktop version</a
           >
-          <div
-            class="warning text-black grid grid-cols-1 place-items-center bg-yellow-400"
-          >
-            <div>This page has migrated to</div>
-            <a
-              href="https://dequubi.github.io/Turbo_Super_Solo/"
-              class="ml-1 font-bold underline cursor-pointer hover:text-gray-900"
-              >dequubi.github.io
-            </a>
-            <div class="mt-2 text-sm text-center">
-              This link will still work, but no longer recieve updates.
-            </div>
-          </div>
           <p id="author">
             made by
             <a
@@ -48,7 +35,7 @@
           <p class="mt-6 text-gray-500 flex justify-center text-sm mb-4">
             Found an issue? Leave it
             <a
-              href="https://github.com/ShaidenUNI/Turbo_Super_Solo/issues"
+              href="https://github.com/dequubi/Turbo_Super_Solo/issues"
               class="text-blue-200 text-center hover:underline ml-1.5"
               >here</a
             >.

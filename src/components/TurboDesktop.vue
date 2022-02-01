@@ -104,17 +104,6 @@
       </div>
     </div>
     <div class="mt-2 border-t-2 border-gray-900"></div>
-    <div class="warning text-black grid grid-cols-1 place-items-center mt-2">
-      <div>
-        This page has migrated to
-        <a
-          href="https://dequubi.github.io/Turbo_Super_Solo/"
-          class="ml-0.5 font-bold underline cursor-pointer hover:text-gray-200"
-          >https://dequubi.github.io/Turbo_Super_Solo/</a
-        >.
-      </div>
-      <div>This link will still work, but no longer recieve updates.</div>
-    </div>
     <div class="footer flex self-center max-w-7xl gap-20 w-full mt-2">
       <div class="buttons flex justify-between w-full">
         <div>
@@ -207,7 +196,7 @@
     <p class="mt-6 text-gray-500 flex justify-center">
       Found an issue? Leave it
       <a
-        href="https://github.com/ShaidenUNI/Turbo_Super_Solo/issues"
+        href="https://github.com/dequubi/Turbo_Super_Solo/issues"
         class="text-blue-200 text-center hover:underline ml-1.5"
         >here</a
       >.
@@ -273,11 +262,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.warning {
-  background-color: #181818;
-  color: white;
-}
-
 .add-row-gap {
   row-gap: 0.25rem;
 }
