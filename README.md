@@ -2,17 +2,20 @@
 
 Built with Vue 3, Tailwind 2 and some other libraries.
 
-This site was built using [GitHub Pages](https://pages.github.com/). Direct [link](https://shaidenuni.github.io/Turbo_Super_Solo/).
+This site was built using [GitHub Pages](https://pages.github.com/). Direct [link](https://dequubi.github.io/Turbo_Super_Solo/).
 
 
 All information for this page was taken from [Trackmania Turbo Center Spreadsheet](https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318) and [Trackmania Turbo Super TrackMaster Runs playlist](https://www.youtube.com/playlist?list=PLfvhWVq2T6JDwbDdKlumD90zUjEuP3rtl).
 
 # Changelog
 ## Version 3
+### 3.2.1
+- Github namechange preparations
 ### 3.2.0
 - Added multiple replays to choose from (WR, Alternative and No cut) to every track
 - Added padviz symbol in replay tab if it has inputs
 - Reworked visuals of tier bar (looks like version 2 now, just a bit uglier)
+- Modal window now closes on backdrop click
 ### 3.1.2
 - Changed PC STM time on track #086
 ### 3.1.1

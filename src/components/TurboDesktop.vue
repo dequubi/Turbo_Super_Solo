@@ -109,7 +109,7 @@
         This page has migrated to
         <a
           href="https://dequubi.github.io/Turbo_Super_Solo/"
-          class="ml-0.5 font-bold underline cursor-pointer hover:text-gray-900"
+          class="ml-0.5 font-bold underline cursor-pointer hover:text-gray-200"
           >https://dequubi.github.io/Turbo_Super_Solo/</a
         >.
       </div>
