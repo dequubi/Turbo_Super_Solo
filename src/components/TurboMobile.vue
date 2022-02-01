@@ -23,10 +23,23 @@
             @click="forceDesktop"
             >Force desktop version</a
           >
+          <div
+            class="warning text-black grid grid-cols-1 place-items-center bg-yellow-400"
+          >
+            <div>This page has migrated to</div>
+            <a
+              href="https://dequubi.github.io/Turbo_Super_Solo/"
+              class="ml-1 font-bold underline cursor-pointer hover:text-gray-900"
+              >dequubi.github.io
+            </a>
+            <div class="mt-2 text-sm text-center">
+              This link will still work, but no longer recieve updates.
+            </div>
+          </div>
           <p id="author">
             made by
             <a
-              href="https://github.com/ShaidenUNI"
+              href="https://github.com/dequubi"
               class="font-author italic text-3xl underline"
               >dequubi</a
             >
