@@ -9,6 +9,9 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.2.4
+- WR updates (15.03.22)
+- Added/fixed some no cut replays
 ### 3.2.3
 - Updated youtube IDs on several tracks
 ### 3.2.2
