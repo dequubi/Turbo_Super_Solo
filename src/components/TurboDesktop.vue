@@ -185,7 +185,7 @@
         <p id="ver" class="text-sm">{{ version }}</p>
       </div>
       <p class="grid place-content-center text-center">
-        All information was taken form the
+        All information was taken from the
         <a
           href="https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318"
           class="text-blue-200 text-center hover:underline"
