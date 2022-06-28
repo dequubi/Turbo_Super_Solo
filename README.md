@@ -8,8 +8,11 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.2.8
+- Fixed small typo
+- WR updates (28.06.22)
 ### 3.2.7
-- WR videos on 2 tracks got deleted for some reason, added new ones.
+- WR videos on 2 tracks got deleted for some reason, added new ones
 ### 3.2.6
 - WR updates (01.06.22)
 ### 3.2.5
