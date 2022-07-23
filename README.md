@@ -8,6 +8,9 @@ All information for this page was taken from [Trackmania Turbo Center Spreadshee
 
 # Changelog
 ## Version 3
+### 3.2.9
+- Tier updates on maps 189, 164 and 65
+- WR updates (23.07.22)
 ### 3.2.8
 - Fixed small typo
 - WR updates (28.06.22)
