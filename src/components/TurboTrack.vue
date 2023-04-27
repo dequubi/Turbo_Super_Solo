@@ -22,7 +22,6 @@
 
 <script>
 import trackInfo from "@/js/trackinfo.json";
-import trackInfoConsole from "@/js/trackinfoConsole.json";
 
 export default {
   name: "TurboTrack",
@@ -63,7 +62,7 @@ export default {
       this.$emit("modal-request", this.$attrs.id);
     },
     tracks() {
-      return this.flags["isConsole"] ? trackInfoConsole : trackInfo;
+      return trackInfo;
     },
   },
 };

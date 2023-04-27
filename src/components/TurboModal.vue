@@ -113,10 +113,7 @@
               :class="'t' + tracks[currentTrack - 1]['tier']"
             ></div>
           </div>
-          <div
-            class="grid p-2 pt-1 -mt-5"
-            :class="{ 'grid-cols-3': isConsole, 'grid-cols-2': !isConsole }"
-          >
+          <div class="grid p-2 pt-1 -mt-5 grid-cols-2">
             <div class="left">
               <div class="text-xl mb-1" :class="{ 'pc-font-size': isDesktop }">
                 Regular Solo {{ isDesktop ? "Medals" : "" }}
@@ -161,9 +158,6 @@
                 ></div>
                 {{ tracks[currentTrack - 1]["b"] }}
               </div>
-            </div>
-            <div class="ml-auto mr-auto mt-1 text-gray-700" v-if="isConsole">
-              console ver.
             </div>
             <div class="right flex flex-col items-end">
               <div class="text-xl mb-1" :class="{ 'pc-font-size': isDesktop }">
@@ -250,7 +244,6 @@
 
 <script>
 import trackInfo from "@/js/trackinfo.json";
-import trackInfoConsole from "@/js/trackinfoConsole.json";
 
 export default {
   name: "TurboModal",
@@ -263,10 +256,6 @@ export default {
     platform: {
       type: String,
       default: "",
-    },
-    isConsole: {
-      type: Boolean,
-      default: false,
     },
   },
   data() {
@@ -317,7 +306,7 @@ export default {
       this.$refs.ytb.setVolume(10);
     },
     getTracks() {
-      return this.isConsole ? trackInfoConsole : trackInfo;
+      return trackInfo;
     },
     tabChange(tab) {
       this.selectedTab = tab;

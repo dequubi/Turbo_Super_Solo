@@ -338,14 +338,6 @@
           Filter by tier <i class="arrow up"></i>
         </button>
       </div>
-      <div class="grid grid-cols-1">
-        <button
-          class="bg-gray-500 text-gray-200 rounded-sm m-0.5 p-1 pl-2 pr-2"
-          @click="flags['isConsole'] = !flags['isConsole']"
-        >
-          Switch to {{ flags["isConsole"] ? "PC" : "console" }} version
-        </button>
-      </div>
     </footer>
   </div>
 </template>

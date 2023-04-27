@@ -2,13 +2,18 @@
 
 Built with Vue 3, Tailwind 2 and some other libraries.
 
-This site was built using [GitHub Pages](https://pages.github.com/). Direct [link](https://dequubi.github.io/Turbo_Super_Solo/).
+This site was built using [GitHub Pages](https://pages.github.com/). [Direct link](https://dequubi.github.io/Turbo_Super_Solo/).
 
-All information for this page was taken from [Trackmania Turbo Center Spreadsheet](https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318) and [Trackmania Turbo Super TrackMaster Runs playlist](https://www.youtube.com/playlist?list=PLfvhWVq2T6JDwbDdKlumD90zUjEuP3rtl).
+Most information for this page was taken from [Trackmania Turbo Center Spreadsheet](https://docs.google.com/spreadsheets/d/1NgkSbAMPm3VcLhXi1Z5oLPQQ8vCjcCSI2S_U_lTOkPA/edit#gid=193237318) and [Trackmania Turbo Super TrackMaster Runs playlist](https://www.youtube.com/playlist?list=PLfvhWVq2T6JDwbDdKlumD90zUjEuP3rtl).
 
 # Changelog
 
 ## Version 3
+
+### 3.2.11
+
+- Tier updates (27.04.23)
+- WR updates (27.04.23)
 
 ### 3.2.10
 

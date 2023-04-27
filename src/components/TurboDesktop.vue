@@ -6,7 +6,6 @@
         @close-modal="modalVisible = false"
         :trackId="selectedTrack"
         :platform="'desktop'"
-        :isConsole="flags['isConsole']"
       />
     </transition>
     <div class="flex justify-center mt-2">
@@ -114,16 +113,10 @@
             Toggle STM tiers
           </button>
           <div class="buttons flex gap-1 mt-1">
-            <button
-              class="bg-gray-500 text-white rounded-sm hover:bg-gray-400 active:bg-gray-500 select-none w-full"
-              @click="flags['isConsole'] = !flags['isConsole']"
-            >
-              Switch to {{ flags["isConsole"] ? "PC" : "console" }} version
-            </button>
             <div
-              class="tooltip bg-gray-500 text-white text-center rounded-sm select-none w-8"
+              class="tooltip bg-gray-700 text-white text-center rounded-sm select-none w-full"
             >
-              ?
+              Console verison?
               <span class="tooltip-text text-left rounded-sm flex items-center"
                 >On consoles all thousandths on STMs are rounded down, which
                 makes most STMs a bit harder to get. This also changes other
@@ -217,7 +210,6 @@ export default {
       version: versionjson["version"],
       flags: {
         showTiers: false,
-        isConsole: false,
       },
       modalVisible: false,
       selectedTrack: 1,
@@ -302,7 +294,7 @@ export default {
   position: absolute;
   z-index: 0;
   top: -52px;
-  left: 150%;
+  left: 105%;
   width: 380px;
   height: 76px;
   padding-left: 0.5rem;
