@@ -10,6 +10,11 @@ Most information for this page was taken from [Trackmania Turbo Center Spreadshe
 
 ## Version 3
 
+### 3.2.12
+
+- WR updates (12.05.23)
+- Fix WR replay on 184
+
 ### 3.2.11
 
 - Tier updates (27.04.23)
